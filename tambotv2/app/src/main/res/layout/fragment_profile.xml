@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ProfileFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/profileBar"
+            android:layout_width="match_parent"
+            android:layout_height="80dp">
+
+
+            <ImageView
+                android:id="@+id/profileShape"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:background="#0062FF" />
+
+            <RelativeLayout
+                android:id="@+id/textProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="53dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="146dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="145dp"
+                android:layout_marginBottom="7dp">
+
+                <TextView
+                    android:id="@+id/profiletxt"
+                    android:layout_width="95dp"
+                    android:layout_height="46dp"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginBottom="6dp"
+                    android:fontFamily="@font/nunito_sans"
+                    android:text="Profile"
+                    android:textColor="@color/white"
+                    android:textSize="32dp" />
+
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/completedBook"
+            android:layout_width="match_parent"
+            android:layout_height="474dp"
+            android:layout_below="@+id/profileBar"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="0dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image"
+                android:layout_width="105dp"
+                android:layout_height="98dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="155dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginEnd="151dp"
+                android:layout_marginRight="@dimen/activity_horizontal_margin"
+                android:layout_marginBottom="362dp"
+                android:src="@drawable/profil" />
+
+            <TextView
+                android:id="@+id/rtvEmail"
+                android:layout_width="298dp"
+                android:layout_height="64dp"
+                android:paddingLeft="15dp"
+                android:paddingTop="15dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="15dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="56dp"
+                android:layout_marginTop="142dp"
+                android:layout_marginEnd="57dp"
+                android:background="@drawable/framelogin"
+                android:ems="10"
+                android:fontFamily="@font/nunito_sans"
+                android:text="Email"
+                android:textAlignment="textStart"
+                android:textSize="17sp"
+                android:singleLine="true"/>
+
+            <TextView
+                android:id="@+id/rtvName"
+                android:layout_width="298dp"
+                android:layout_height="64dp"
+                android:paddingLeft="15dp"
+                android:paddingTop="15dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="15dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="56dp"
+                android:layout_marginTop="224dp"
+                android:layout_marginEnd="57dp"
+                android:background="@drawable/framelogin"
+                android:ems="10"
+                android:fontFamily="@font/nunito_sans"
+                android:text="Nama"
+                android:textSize="17sp"
+                android:singleLine="true"/>
+
+            <TextView
+                android:id="@+id/rtvPassword"
+                android:layout_width="298dp"
+                android:layout_height="64dp"
+                android:paddingLeft="15dp"
+                android:paddingTop="15dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="15dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="53dp"
+                android:layout_marginTop="313dp"
+                android:layout_marginEnd="60dp"
+                android:background="@drawable/framelogin"
+                android:fontFamily="@font/nunito_sans"
+                android:text="Password"
+                android:textSize="17sp"
+                android:singleLine="true"/>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/menuProfile"
+            android:layout_width="401dp"
+            android:layout_height="114dp"
+            android:layout_below="@+id/completedBook"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="-55dp"
+            android:layout_marginEnd="6dp">
+
+            <ImageButton
+                android:id="@+id/editProfButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginBottom="33dp"
+                android:background="@drawable/editbtn"
+                android:contentDescription="@string/welcome"
+                android:text="Edit Profile"
+                android:textSize="16dp" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</FrameLayout>

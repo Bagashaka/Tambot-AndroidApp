@@ -1,0 +1,26 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:gravity="center"
+    tools:context=".home_frag">
+
+    <Button
+        android:id="@+id/btnChatbot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Go to Chat" />
+
+    <Space
+        android:layout_width="10dp"
+        android:layout_height="match_parent" />
+
+    <Button
+        android:id="@+id/btnVer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cek Version" />
+
+</LinearLayout>
+

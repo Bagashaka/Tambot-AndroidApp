@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChatFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="438dp"
+        android:layout_gravity="top"
+        android:layout_marginTop="82dp"
+        android:layout_marginBottom="116dp" />
+
+    <TextView
+        android:id="@+id/welcome_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="Welcome to Tambot\nTry it out now"
+        android:textSize="28sp" />
+
+    <FrameLayout
+        android:id="@+id/bottom_layout"
+        android:layout_width="match_parent"
+        android:layout_height="116dp"
+        android:layout_gravity="bottom"
+        android:padding="8dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/message_edit_text"
+                android:layout_width="333dp"
+                android:layout_height="85dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginRight="48dp"
+                android:background="@drawable/chatframe"
+                android:hint="Write here"
+                android:padding="25dp"
+                android:paddingLeft="15dp"
+                android:paddingTop="15dp"
+                android:paddingRight="130dp"
+                android:paddingBottom="15dp"
+                app:layout_constraintEnd_toStartOf="@+id/send_btn"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/send_btn"
+                android:layout_width="48dp"
+                android:layout_height="75dp"
+                android:layout_marginEnd="4dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Send"
+                android:padding="8dp"
+                android:src="@drawable/send"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
+
+    <RelativeLayout
+        android:id="@+id/topnav"
+        android:layout_width="408dp"
+        android:layout_height="82dp"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="5dp">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="26dp"
+            android:layout_marginBottom="24dp"
+            app:srcCompat="@drawable/bluelogo" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="85dp"
+            android:layout_height="30dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="266dp"
+            android:fontFamily="@font/nunito_bold"
+            android:text="Tambot"
+            android:textColor="#036AFE"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/forYou"
+            android:layout_width="85dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="43dp"
+            android:layout_marginEnd="261dp"
+            android:fontFamily="@font/nunito_bold"
+            android:text="treasure"
+            android:textColor="#3ABF38"
+            android:textSize="16sp" />
+
+        <ImageButton
+            android:id="@+id/btnLogout"
+            android:layout_width="55dp"
+            android:layout_height="51dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="14dp"
+            android:layout_marginBottom="8dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Logout"
+            android:src="@drawable/baseline_power_settings_new_24" />
+    </RelativeLayout>
+</FrameLayout>
