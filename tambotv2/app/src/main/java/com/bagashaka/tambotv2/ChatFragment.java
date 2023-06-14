@@ -111,10 +111,34 @@ public class ChatFragment extends Fragment {
         }
     }
 
-    void addResponse(String response){
-        messageList.remove(messageList.size()-1);
-        addToChat(response,Message.SENT_BY_BOT);
+    void addResponse(String response) {
+        boolean isTypingMessageRemoved = false;
+        if (!messageList.isEmpty()) {
+            int lastIndex = messageList.size() - 1;
+            Message lastMessage = messageList.get(lastIndex);
+            if (lastMessage.getSendby().equals(Message.SENT_BY_BOT) && lastMessage.getMessage().equals("Typing...")) {
+                messageList.remove(lastIndex);
+                isTypingMessageRemoved = true;
+            }
+        }
+
+        addToChat(response, Message.SENT_BY_BOT);
+
+        if (isTypingMessageRemoved) {
+            messageList.add(new Message("Typing...", Message.SENT_BY_BOT));
+        }
+
+        handler.post(new Runnable() {
+            @Override
+            public void run() {
+                messageAdapter.notifyDataSetChanged();
+                recyclerView.smoothScrollToPosition(messageAdapter.getItemCount());
+            }
+        });
     }
+
+
+
 
     void CallAPI(String question){
         messageList.add(new Message("Typing...",Message.SENT_BY_BOT));
@@ -135,8 +159,8 @@ public class ChatFragment extends Fragment {
         RequestBody body = RequestBody.create(jsonObject.toString(),JSON);
         Request request = new Request.Builder()
                 .url("https://api.openai.com/v1/chat/completions")
-                .header("Authorization","Bearer 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")
-                  .post(body)
+                .header("Authorization","Bearer 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")
+                .post(body)
                 .build();
         client.newCall(request).enqueue(new Callback() {
             @Override
@@ -146,20 +170,27 @@ public class ChatFragment extends Fragment {
 
             @Override
             public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
-                if(response.isSuccessful()){
-                    try {
+                try {
+                    if(response.isSuccessful()){
                         JSONObject jsonObject = new JSONObject(response.body().string());
-                        JSONArray jsonArray = null;
-                        jsonArray = jsonObject.getJSONArray("choices");
+                        JSONArray jsonArray = jsonObject.getJSONArray("choices");
                         String result = jsonArray.getJSONObject(0)
                                 .getJSONObject("message")
                                 .getString("content");
                         addResponse(result.trim());
-                    }catch (JSONException e){
-                        throw new RuntimeException(e);
+                    } else {
+                        addResponse("Failed to response due to "+ response.body().string() );
                     }
-                }else {
-                    addResponse("Failed to response due to "+ response.body().string() );
+                } catch (JSONException e) {
+                    addResponse("Error parsing response: " + e.getMessage());
+                } finally {
+                    handler.post(new Runnable() {
+                        @Override
+                        public void run() {
+                            messageAdapter.notifyDataSetChanged();
+                            recyclerView.smoothScrollToPosition(messageAdapter.getItemCount());
+                        }
+                    });
                 }
             }
         });
